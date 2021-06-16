@@ -1,0 +1,109 @@
+{
+  "version": 2,
+  "projects": {
+    "with-migration-schematic": {
+      "root": "libs/with-migration-schematic",
+      "sourceRoot": "libs/with-migration-schematic/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/with-migration-schematic/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/with-migration-schematic"
+          ],
+          "options": {
+            "jestConfig": "libs/with-migration-schematic/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/with-migration-schematic",
+            "tsConfig": "libs/with-migration-schematic/tsconfig.lib.json",
+            "packageJson": "libs/with-migration-schematic/package.json",
+            "main": "libs/with-migration-schematic/src/index.ts",
+            "assets": [
+              {
+                "input": "./libs/with-migration-schematic/src",
+                "glob": "**/*.!(ts)",
+                "output": "./src"
+              },
+              {
+                "input": "./libs/with-migration-schematic",
+                "glob": "migration.json",
+                "output": "."
+              }
+            ],
+            "srcRootForCompilationRoot": "libs/with-migration-schematic"
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        }
+      }
+    },
+    "without-migration-json": {
+      "root": "libs/without-migration-json",
+      "sourceRoot": "libs/without-migration-json/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/without-migration-json/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/without-migration-json"
+          ],
+          "options": {
+            "jestConfig": "libs/without-migration-json/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/without-migration-json",
+            "tsConfig": "libs/without-migration-json/tsconfig.lib.json",
+            "packageJson": "libs/without-migration-json/package.json",
+            "main": "libs/without-migration-json/src/index.ts",
+            "assets": [
+              {
+                "input": "./libs/without-migration-json/src",
+                "glob": "**/*.!(ts)",
+                "output": "./src"
+              },
+              {
+                "input": "./libs/without-migration-json",
+                "glob": "collection.json",
+                "output": "."
+              }
+            ],
+            "srcRootForCompilationRoot": "libs/without-migration-json"
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/workspace",
+    "packageManager": "yarn"
+  }
+}

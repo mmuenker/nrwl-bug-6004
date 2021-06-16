@@ -1,0 +1,9 @@
+{
+  "name": "@nrwl-bug-6004/with-migration-schematic",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "ng-update": {
+    "migrations": "./migration.json"
+  },
+  "private": false
+}

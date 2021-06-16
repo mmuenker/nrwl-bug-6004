@@ -1,0 +1,11 @@
+{
+  "migrations": [
+    {
+      "version": "1.0.0",
+      "factory": "./src/migrations/v1-0-0/index",
+      "description": "updates to v1.0.0",
+      "package": "@nrwl-bug-6004/with-migration-schematic",
+      "name": "v1-0-0"
+    }
+  ]
+}
